@@ -49,6 +49,24 @@ class NotesServiceImplTest
     
     
     @Test
+    void of_EmptyStudentName()
+    {
+        thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+           service.averageOf("");
+        });
+        assertEquals("Imię ucznia nie może być puste", thrown.getMessage());
+    }
+    
+    @Test
+    void of_NullStudentName()
+    {
+        thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            service.averageOf(null);
+        });
+        assertEquals("Imię ucznia nie może być null", thrown.getMessage());
+    }
+    
+    @Test
     void averageOf()
     {
         service.add(Note.of("Marek", 5));
