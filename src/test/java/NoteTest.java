@@ -18,10 +18,19 @@ class NoteTest
     }
     
     @Test
-    void of_incorrectNote()
+    void of_incorrectNoteisLower()
     {
         thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
             note = Note.of("Marek", 1);
+        });
+        assertEquals("Niewłaściwa ocena", thrown.getMessage());
+    }
+    
+    @Test
+    void of_incorrectNoteisHigher()
+    {
+        thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            note = Note.of("Marek", 7);
         });
         assertEquals("Niewłaściwa ocena", thrown.getMessage());
     }
