@@ -25,4 +25,4 @@ jobs:
       - name: Test
         run: mvn -B test
       - name: Codecov
-        run: bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v1.0.6
